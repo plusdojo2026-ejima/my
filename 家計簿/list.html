@@ -18,7 +18,7 @@
     <div class="tabs">
         <button class="tab active" onclick="showTab(event, 'income')">収入</button>
         <button class="tab" onclick="showTab(event, 'expense')">支出</button>
-        <button class="tab" onclick="showTab(event, 'save')">我慢</button>
+        <button class="tab" onclick="showTab(event, 'patience')">我慢</button>
     </div>
 
     <!-- タブの中身　-->
@@ -63,18 +63,6 @@
                                 <c:forEach var="c" items="${categoryList}">
                                     <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
                                         ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
                                 </c:forEach>
                             </select>
                             <select name="emotion" class="emo">
@@ -135,18 +123,6 @@
                                         ${c.cname}</option>
                                 </c:forEach>
                             </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
                             <select name="emotion" class="emo">
                                 <c:forEach var="em" items="${emotionList}">
                                     <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
@@ -201,18 +177,6 @@
                                 <c:forEach var="c" items="${categoryList}">
                                     <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
                                         ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
                                 </c:forEach>
                             </select>
                             <select name="emotion" class="emo">
@@ -584,10 +548,10 @@
 
             <div class="tcard">
 
-                <div class="header" onclick="toggleContent('cat${st.index}_pt', this)">
+                <div class="header" onclick="toggleContent('cat${st.index}_t', this)">
 
                     <span>
-                        ${entry.key} の収入合計
+                        ${entry.key} の我慢できたもの合計
                     </span>
 
                     <span class="amount">
@@ -598,7 +562,7 @@
 
                 </div>
 
-                <div id="cat${st.index}_pt" class="detail" style="display:none;">
+                <div id="cat${st.index}_t" class="detail" style="display:none;">
 
                     <c:forEach var="e" items="${entry.value}">
 
@@ -617,12 +581,7 @@
                                         ${c.cname}</option>
                                 </c:forEach>
                             </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
+
                             <select name="situation">
                                 <c:forEach var="s" items="${situationList}">
                                     <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
@@ -650,14 +609,14 @@
 
             <div class="ccard">
 
-                <div class="header" onclick="toggleContent('cat${st.index}_ic', this)">
+                <div class="header" onclick="toggleContent('cat${st.index}_pc', this)">
 
                     <span>
                         <select name="category" id="select_menu">
                             <option value="1">給料</option>
                             <option value="2">お小遣い</option>
                             <option value="3">副業</option>
-                        </select> の支出合計
+                        </select> の我慢できたもの合計
                     </span>
 
                     <span class="amount">
@@ -668,7 +627,7 @@
 
                 </div>
 
-                <div id="cat${st.index}_ic" class="detail" style="display:none;">
+                <div id="cat${st.index}_pc" class="detail" style="display:none;">
 
                     <c:forEach var="e" items="${entry.value}">
 
@@ -685,12 +644,6 @@
                                 <c:forEach var="c" items="${categoryList}">
                                     <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
                                         ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
                                 </c:forEach>
                             </select>
                             <select name="situation">
@@ -715,6 +668,68 @@
                 </div>
             </div>
 
+            <div class="scard">
+
+                <div class="header" onclick="toggleContent('cat${st.index}_s', this)">
+
+                    <span>
+                        <select name="situetion" id="select_menu">
+                            <option value="1">通勤時</option>
+                            <option value="2">昼休み</option>
+                            <option value="3">休日</option>
+                        </select> の我慢できたもの合計
+                    </span>
+
+                    <span class="amount">
+                        ¥${categoryTotalMap[entry.key]}
+                    </span>
+
+                    <span class="arrow">▼</span>
+
+                </div>
+
+                <div id="cat${st.index}_s" class="detail" style="display:none;">
+
+                    <c:forEach var="e" items="${entry.value}">
+
+                        <form method="post" action="ListServlet">
+
+
+                            <input type="checkbox" name="deleteIds" value="${e.id}">
+
+                            <input type="hidden" name="id" value="${e.id}">
+
+                            <input type="date" name="useDate" value="${e.useDate}">
+
+                            <select name="category">
+                                <c:forEach var="c" items="${categoryList}">
+                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
+                                        ${c.cname}</option>
+                                </c:forEach>
+                            </select>
+                            <select name="situation">
+                                <c:forEach var="s" items="${situationList}">
+                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
+                                        ${s.sname}</option>
+                                </c:forEach>
+                            </select>
+                            <select name="emotion" class="emo">
+                                <c:forEach var="em" items="${emotionList}">
+                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                        </c:if>>
+                                        ${em.ename}</option>
+                                </c:forEach>
+                            </select>
+                            <input type="text" name="amoung" value="${e.amoung}">
+
+                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
+                        value="削除">
+
+                    </form>
+                </div>
+            </div>
+
+
             <div class="ecard">
 
                 <div class="header" onclick="toggleContent('cat${st.index}_ie', this)">
@@ -725,7 +740,7 @@
                             <option value="2">😊</option>
                             <option value="3">😢</option>
                             <option value="4">😡</option>
-                        </select> の収入合計
+                        </select> の我慢できたもの合計
                     </span>
 
                     <span class="amount">
@@ -753,12 +768,6 @@
                                 <c:forEach var="c" items="${categoryList}">
                                     <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
                                         ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
                                 </c:forEach>
                             </select>
                             <select name="situation">

@@ -82,36 +82,37 @@ header {
 input[type=month] {
     width: 15rem;
     padding: 50px;
-
+    font-size: 20px;
 }
 
 input[type="checkbox"] {
     width: 20px;
     height: 60px;
+    font-size: 20px;
 }
 
 select {
-    width: 140px;
+    width: 120px;
     height: 60px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .emo {
-    width: 40px;
+    width: 50px;
     height: 60px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 input[type="date"] {
     width: 150px;
     height: 60px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 input[type="text"] {
     width: 100px;
     height: 60px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 /*項目別カード*/
@@ -175,6 +176,15 @@ header {
 
 .detail {
     padding: 15px;
+}
+
+.detail form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
 }
 
 #select_menu {
