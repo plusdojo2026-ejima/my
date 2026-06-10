@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>一覧 | kakemi</title>
+    <link rel="stylesheet" type="text/css" href="css/list.css">
+</head>
+
+<body>
+    <div id="bar">
+
+    </div>
+
+
+
+    <!-- タブ -->
+    <div class="tabs">
+        <button class="tab active" onclick="showTab(event, 'income')">収入</button>
+        <button class="tab" onclick="showTab(event, 'expense')">支出</button>
+        <button class="tab" onclick="showTab(event, 'save')">我慢</button>
+    </div>
+
+    <!-- タブの中身　-->
+    <div id="income" class="content active">
+        <input type="month">
+    </div>
+
+    <div id="expense" class="content">
+        支出
+    </div>
+
+    <div id="save" class="content">
+        我慢
+    </div>
+
+
+
+
+
+
+    <!--フッター-->
+    <div id="footer">
+        <nav class="nav-bar">
+            <nav class="nav-bar">
+                      <a class="nav-item" href="Servlet">
+                            <span class="icon">🏠</span>
+                            <span>ホーム</span>
+                          </a>
+                      <a class="nav-item " href="Servlet">
+                            <span class="icon">✏️</span>
+                            <span>登録</span>
+                          </a>
+                      <a class="nav-item active" href="Servlet">
+                            <span class="icon">📋</span>
+                            <span>一覧</span>
+                          </a>
+                      <a class="nav-item" href="Servlet">
+                            <span class="icon">🚪</span>
+                            <span>ログアウト</span>
+                          </a>
+                    </nav>
+
+    </div>
+    <!--フッター終わり-->
+</body>
+
+<script>
+    function showTab(event, id) {
+        // 全部非表示
+        document.querySelectorAll(".content").forEach(el => {
+            el.classList.remove("active");
+        });
+
+        // タブの色リセット
+        document.querySelectorAll(".tab").forEach(tab => {
+            tab.classList.remove("active");
+        });
+
+        // 押したやつ表示
+        document.getElementById(id).classList.add("active");
+        event.currentTarget.classList.add("active");
+    }
+</script>
+
+
+
+</html>
