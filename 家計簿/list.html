@@ -23,46 +23,116 @@
 
     <!-- タブの中身　-->
     <div id="income" class="content active">
-        <input type="month">
-    </div>
+        <div class="calender">
+            <input type="month" name="calendar">
+        </div>
 
-    <div id="expense" class="content">
-        支出
-    </div>
+        <c:forEach var="entry" items="${categoryMap}" varStatus="st">
 
-    <div id="save" class="content">
-        我慢
-    </div>
+            <div class="card">
+
+                <div class="header" onclick="toggleContent('cat${st.index}', this)">
+
+                    <span>
+                        ${entry.key} の支出合計
+                    </span>
+
+                    <span class="amount">
+                        ¥${categoryTotalMap[entry.key]}
+                    </span>
+
+                    <span class="arrow">▼</span>
+
+                </div>
+
+                <div id="cat${st.index}" class="detail" style="display:none;">
+
+                    <c:forEach var="e" items="${entry.value}">
+
+                        <form method="post" action="ListServlet">
+
+
+                            <input type="checkbox" name="deleteIds" value="${e.id}">
+
+                            <input type="hidden" name="id" value="${e.id}">
+
+                            <input type="date" name="useDate" value="${e.useDate}">
+
+                            <select name="category">
+                                <c:forEach var="c" items="${categoryList}">
+                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
+                                        ${c.cname}</option>
+                                </c:forEach>
+                            </select>
+                            <select name="tag">
+                                <c:forEach var="t" items="${tagList}">
+                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                        ${t.tname}</option>
+                                </c:forEach>
+                            </select>
+                            <select name="situation">
+                                <c:forEach var="s" items="${situationList}">
+                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
+                                        ${s.sname}</option>
+                                </c:forEach>
+                            </select>
+                            <select name="emotion">
+                                <c:forEach var="em" items="${emotionList}">
+                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                        </c:if>>
+                                        ${em.ename}</option>
+                                </c:forEach>
+                            </select>
+                            <input type="text" name="amoung" value="${e.amoung}">
+
+                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
+                        value="削除">
+
+                    </form>
+
+
+
+                </div>
+
+
+
+                <div id="expense" class="content">
+                    支出
+                </div>
+
+                <div id="save" class="content">
+                    我慢
+                </div>
 
 
 
 
 
 
-    <!--フッター-->
-    <div id="footer">
-        <nav class="nav-bar">
-            <nav class="nav-bar">
-                      <a class="nav-item" href="Servlet">
-                            <span class="icon">🏠</span>
-                            <span>ホーム</span>
-                          </a>
-                      <a class="nav-item " href="Servlet">
-                            <span class="icon">✏️</span>
-                            <span>登録</span>
-                          </a>
-                      <a class="nav-item active" href="Servlet">
-                            <span class="icon">📋</span>
-                            <span>一覧</span>
-                          </a>
-                      <a class="nav-item" href="Servlet">
-                            <span class="icon">🚪</span>
-                            <span>ログアウト</span>
-                          </a>
-                    </nav>
+                <!--フッター-->
+                <div id="footer">
+                    <nav class="nav-bar">
+                        <nav class="nav-bar">
+                                  <a class="nav-item" href="Servlet">
+                                        <span class="icon">🏠</span>
+                                        <span>ホーム</span>
+                                      </a>
+                                  <a class="nav-item " href="Servlet">
+                                        <span class="icon">✏️</span>
+                                        <span>登録</span>
+                                      </a>
+                                  <a class="nav-item active" href="Servlet">
+                                        <span class="icon">📋</span>
+                                        <span>一覧</span>
+                                      </a>
+                                  <a class="nav-item" href="Servlet">
+                                        <span class="icon">🚪</span>
+                                        <span>ログアウト</span>
+                                      </a>
+                                </nav>
 
-    </div>
-    <!--フッター終わり-->
+                </div>
+                <!--フッター終わり-->
 </body>
 
 <script>
@@ -81,6 +151,30 @@
         document.getElementById(id).classList.add("active");
         event.currentTarget.classList.add("active");
     }
+
+    //開閉トグル▲▼用
+
+    function toggleContent(id, header) {
+
+        const detail =
+            document.getElementById(id);
+
+        const arrow =
+            header.querySelector(".arrow");
+
+        if (detail.style.display === "none") {
+
+            detail.style.display = "block";
+            arrow.textContent = "▲";
+
+        } else {
+
+            detail.style.display = "none";
+            arrow.textContent = "▼";
+
+        }
+    }
+
 </script>
 
 

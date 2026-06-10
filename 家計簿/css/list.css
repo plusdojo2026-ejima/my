@@ -47,6 +47,34 @@
   display: block;
 }
 
+/*カレンダー*/
+.calender{
+    background-color: #ffffff;
+    padding: 50px 50px ;
+}
+
+input[type=month]{
+    width: 15rem;
+    padding: 50px ;
+
+}
+
+input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+select{
+    width: 350px;
+    height: 35px;
+}
+input[type="date"]{
+    width: 380px;
+    height: 35px;
+}
+input[type="text"]{
+    width: 100px;
+    height: 35px;
+}
 
 
 
