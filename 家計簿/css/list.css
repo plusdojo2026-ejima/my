@@ -1,5 +1,14 @@
 body {
-    font-size: 16px;
+    font-size: 36px;
+}
+
+header {
+    background: #FAF0F6;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0 12px;
+    border-top: 1px solid #F0DCEA;
 }
 
 .tab {
@@ -107,14 +116,44 @@ input[type="text"] {
 
 /*項目別カード*/
 
-.card {
+.tcard {
     background: #fff;
-    border-radius: 15px;
+    border-radius: 5px;
     margin: 15px 0;
     border: 1px solid #ddd;
 }
 
-.cheader {
+.ccard {
+    background: #fff;
+    border-radius: 5px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+}
+
+.scard {
+    background: #fff;
+    border-radius: 5px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+}
+
+.tagcard {
+    background: #fff;
+    border-radius: 5px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+}
+
+.ecard {
+    background: #fff;
+    border-radius: 5px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
+}
+
+
+
+header {
     display: flex;
     align-items: center;
     padding: 15px;
@@ -122,10 +161,12 @@ input[type="text"] {
     font-size: 20px;
 }
 
+
 .amount {
     margin-left: auto;
     font-size: 24px;
     font-weight: bold;
+
 }
 
 .arrow {
@@ -134,6 +175,12 @@ input[type="text"] {
 
 .detail {
     padding: 15px;
+}
+
+#select_menu {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
 }
 
 
