@@ -1,5 +1,23 @@
 
 
+body {
+  font-size: 16px;
+}
+
+.tab {
+  font-size: 15px;
+  padding: 14px 0;
+}
+
+.accordion-header {
+  font-size: 15px;
+}
+
+.accordion-content {
+  font-size: 14px;
+}
+
+
 #bar {
     background: #FAF0F6;
     display: flex;
@@ -61,7 +79,7 @@ input[type=month]{
 
 input[type="checkbox"]{
     width: 20px;
-    height: 50px;
+    height: 40px;
 }
 select{
     width: 350px;
@@ -69,11 +87,39 @@ select{
 }
 input[type="date"]{
     width: 380px;
-    height: 50px;
+    height: 40px;
 }
 input[type="text"]{
     width: 100px;
-    height: 50px;
+    height: 40px;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    margin:15px 0;
+    border:1px solid #ddd;
+}
+
+.header{
+    display:flex;
+    align-items:center;
+    padding:15px;
+    cursor:pointer;
+}
+
+.amount{
+    margin-left:auto;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.arrow{
+    margin-left:10px;
+}
+
+.detail{
+    padding:15px;
 }
 
 
