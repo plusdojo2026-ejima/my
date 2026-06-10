@@ -61,7 +61,7 @@ input[type=month]{
 
 input[type="checkbox"]{
     width: 20px;
-    height: 20px;
+    height: 50px;
 }
 select{
     width: 350px;
@@ -69,11 +69,11 @@ select{
 }
 input[type="date"]{
     width: 380px;
-    height: 35px;
+    height: 50px;
 }
 input[type="text"]{
     width: 100px;
-    height: 35px;
+    height: 50px;
 }
 
 
