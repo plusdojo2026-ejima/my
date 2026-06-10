@@ -1,20 +1,18 @@
-
-
 body {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 .tab {
-  font-size: 15px;
-  padding: 14px 0;
+    font-size: 15px;
+    padding: 14px 0;
 }
 
 .accordion-header {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .accordion-content {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 
@@ -30,96 +28,102 @@ body {
 /*切り替えタブ用*/
 
 .tabs {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .tab {
-  flex: 1;
-  padding: 50px 50px ;
-  border-radius: 15px;
-  border: none;
-  background: #FAF0F6;
-  font-size: 40px;
+    flex: 1;
+    padding: 50px 50px;
+    border-radius: 15px;
+    border: none;
+    background: #FAF0F6;
+    font-size: 40px;
 }
 
 .tab.active {
-  background: #ffffff;
-  border: 1px solid #F0DCEA;
-  font-weight: bold;
+    background: #ffffff;
+    border: 1px solid #F0DCEA;
+    font-weight: bold;
 }
 
 
 /* タブの中身用 */
 .content {
-  display: none;
-  padding: 15px;
-  background: #fafafa;
-  border-radius: 10px;
+    display: none;
+    padding: 15px;
+    background: #fafafa;
+    border-radius: 10px;
 }
 
 /* タブ表示中 */
 .content.active {
-  display: block;
+    display: block;
 }
 
 /*カレンダー*/
-.calender{
+.calender {
     background-color: #ffffff;
-    padding: 50px 50px ;
+    padding: 50px 50px;
 }
 
-input[type=month]{
+input[type=month] {
     width: 15rem;
-    padding: 50px ;
+    padding: 50px;
 
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
     width: 20px;
-    height: 40px;
+    height: 60px;
 }
-select{
-    width: 350px;
-    height: 35px;
+
+select {
+    width: 140px;
+    height: 60px;
+    font-size: 16px;
 }
-input[type="date"]{
-    width: 380px;
-    height: 40px;
+
+input[type="date"] {
+    width: 150px;
+    height: 60px;
+    font-size: 16px;
 }
-input[type="text"]{
+
+input[type="text"] {
     width: 100px;
-    height: 40px;
+    height: 60px;
+    font-size: 16px;
 }
 
-.card{
-    background:#fff;
-    border-radius:15px;
-    margin:15px 0;
-    border:1px solid #ddd;
+.card {
+    background: #fff;
+    border-radius: 15px;
+    margin: 15px 0;
+    border: 1px solid #ddd;
 }
 
-.header{
-    display:flex;
-    align-items:center;
-    padding:15px;
-    cursor:pointer;
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
 }
 
-.amount{
-    margin-left:auto;
-    font-size:24px;
-    font-weight:bold;
+.amount {
+    margin-left: auto;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.arrow{
-    margin-left:10px;
+.arrow {
+    margin-left: 10px;
 }
 
-.detail{
-    padding:15px;
+.detail {
+    padding: 15px;
 }
 
 
@@ -156,4 +160,3 @@ input[type="text"]{
 .nav-item span.icon {
     font-size: 20px;
 }
-
