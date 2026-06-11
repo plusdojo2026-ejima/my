@@ -132,6 +132,7 @@ select {
     height: 40px;
     border-radius: 5px;
     border: 1px solid #ccc;
+    appearance: none;
 }
 
 
@@ -162,12 +163,12 @@ select {
 
 
 
-.amount {
-    margin-left: auto;
-    font-size: 16px;
-    font-weight: bold;
 
+.amount {
+    text-align: right;
+    font-weight: bold;
 }
+
 
 .arrow {
     margin-left: 10px;
@@ -188,21 +189,46 @@ select {
     display: grid;
 
     grid-template-columns:
-        30px   /* checkbox */
-        100px  /* date */
-        1fr    /* category */
-        1fr    /* emotion */
-        80px;  /* amount */
+        30px      /* checkbox */
+        110px     /* 日付 */
+        1fr       /* category */
+        1fr       /* emotion */
+        80px;     /* 金額 */
 
-    gap: 6px;
+    gap: 8px;
+    align-items: center;
+
+    
+    background: #fafafa;
+    padding: 6px;
+    border-radius: 8px;
+
 }
+
+
 
 
 .row-item input,
 .row-item select {
     width: 100%;
-    min-width: 0; 
+    height: 32px;
+    padding: 4px 6px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 13px;
+    box-sizing: border-box;
 }
+
+
+.row-item input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: auto;
+}
+
+
 
 
 .buttons {
@@ -211,10 +237,13 @@ select {
     gap: 10px;
 }
 
+
 .buttons input {
-    flex: 1;
-    padding: 8px;
+    border-radius: 8px;    height: 36px;
+    border: 1px solid #ccc;
+    background: #f2f2f2;
 }
+
 
 #select_menu {
     width: 100px;
