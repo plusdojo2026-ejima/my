@@ -177,9 +177,9 @@ select {
 
 
 .detail {
-  
+
     overflow-x: auto;
-    white-space: nowrap;
+
 
 }
 
@@ -189,25 +189,23 @@ select {
 
 
 .row-item {
+
+
+    min-width: 500px;
+
+
     display: grid;
-
-    grid-template-columns:
-
-        30px
-        120px
-        120px 
-        120px
-        120px
-        80px;
-
+    grid-template-columns: 30px 110px 140px 140px 100px 100px  100px;
 
     gap: 8px;
     align-items: center;
 
-    
+
     background: #fafafa;
-    padding: 6px;
+    padding: 16px;
     border-radius: 8px;
+
+    white-space: nowrap;
 
 }
 
@@ -216,6 +214,8 @@ select {
 
 .row-item input,
 .row-item select {
+
+
     width: 100%;
     height: 32px;
     padding: 4px 6px;
@@ -245,7 +245,8 @@ select {
 
 
 .buttons input {
-    border-radius: 8px;    height: 36px;
+    border-radius: 8px;
+    height: 36px;
     border: 1px solid #ccc;
     background: #f2f2f2;
 }
@@ -267,7 +268,7 @@ select {
     align-items: center;
     padding: 10px 0 12px;
     border-top: 1px solid #F0DCEA;
-    
+
     position: fixed;
     bottom: 0;
     width: 100%;
