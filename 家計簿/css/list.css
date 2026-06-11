@@ -174,10 +174,12 @@ select {
 }
 
 
+
 .detail {
-    font-size: 13px;
-    margin-top: 5px;
+    overflow-x: auto;
 }
+
+
 
 
 
@@ -185,20 +187,23 @@ select {
 .row-item {
     display: grid;
 
-    /* 横並び全部 */
-    grid-template-columns: 
+    grid-template-columns:
         30px   /* checkbox */
-        120px  /* date */
+        100px  /* date */
         1fr    /* category */
-        1fr    /* tag */
-        1fr    /* situation */
         1fr    /* emotion */
-        100px; /* amount */
+        80px;  /* amount */
 
     gap: 6px;
-    align-items: center;
-    margin-bottom: 8px;
 }
+
+
+.row-item input,
+.row-item select {
+    width: 100%;
+    min-width: 0; 
+}
+
 
 .buttons {
     margin-top: 10px;
