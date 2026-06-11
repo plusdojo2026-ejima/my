@@ -177,7 +177,10 @@ select {
 
 
 .detail {
+  
     overflow-x: auto;
+    white-space: nowrap;
+
 }
 
 
@@ -189,11 +192,14 @@ select {
     display: grid;
 
     grid-template-columns:
-        30px      /* checkbox */
-        110px     /* 日付 */
-        1fr       /* category */
-        1fr       /* emotion */
-        80px;     /* 金額 */
+
+        30px
+        120px
+        120px 
+        120px
+        120px
+        80px;
+
 
     gap: 8px;
     align-items: center;
