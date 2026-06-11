@@ -8,12 +8,10 @@
     <link rel="stylesheet" type="text/css" href="css/list.css">
 </head>
 
-<header>
-
-</header>
-
 <body>
-
+    <header>
+        一覧
+    </header>
 
     <!-- タブ -->
     <div class="tabs">
@@ -24,8 +22,8 @@
 
     <!-- タブの中身　-->
 
-    <div id="income" class="content">
-        <div class="calender">
+    <div id="income" class="content active">
+        <div class="calendar">
             <input type="month" name="calendar">
         </div>
 
@@ -48,35 +46,41 @@
                 </div>
 
                 <div id="cat${st.index}_it" class="detail" style="display:none;">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                            <div class="row-item">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="hidden" name="id" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <input type="date" name="useDate" value="${e.useDate}">
+
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -107,34 +111,41 @@
 
                 <div id="cat${st.index}_ic" class="detail" style="display:none;">
 
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                    <form method="post" action="ListServlet">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                        <c:forEach var="e" items="${entry.value}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                            <div class="row-item">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <input type="hidden" name="id" value="${e.id}">
+
+                                <input type="date" name="useDate" value="${e.useDate}">
+
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -162,44 +173,50 @@
                 </div>
 
                 <div id="cat${st.index}_ie" class="detail" style="display:none;">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
+                            <div class="row-item">
 
-                    <c:forEach var="e" items="${entry.value}">
 
-                        <form method="post" action="ListServlet">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                        <div class="buttons">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
-
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
-
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
                     </form>
                 </div>
             </div>
-
-
+        </c:forEach>
     </div>
+
+
+
+
     <div id="expense" class="content">
-        <div class="calender">
+        <div class="calendar">
             <input type="month" name="calendar">
         </div>
 
@@ -222,47 +239,55 @@
                 </div>
 
                 <div id="cat${st.index}_t" class="detail" style="display:none;">
-
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                            <div class="row-item">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
+
 
                     </form>
                 </div>
@@ -292,47 +317,54 @@
                 </div>
 
                 <div id="cat${st.index}_c" class="detail" style="display:none;">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                            <div class="row-item">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -359,47 +391,53 @@
                 </div>
 
                 <div id="cat${st.index}_s" class="detail" style="display:none;">
-
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                            <div class="row-item">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -411,9 +449,9 @@
 
                     <span>
                         <select name="tag" id="select_menu">
-                            <option value="1">通勤時</option>
-                            <option value="2">昼休み</option>
-                            <option value="3">休日</option>
+                            <option value="1">セール</option>
+                            <option value="2">曖昧</option>
+                            <option value="3">ご褒美</option>
                         </select> の支出合計
                     </span>
 
@@ -426,47 +464,53 @@
                 </div>
 
                 <div id="cat${st.index}_tag" class="detail" style="display:none;">
-
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                            <div class="row-item">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -478,9 +522,10 @@
 
                     <span>
                         <select name="tag" id="select_menu">
-                            <option value="1">通勤時</option>
-                            <option value="2">昼休み</option>
-                            <option value="3">休日</option>
+                            <option value="1">😐</option>
+                            <option value="2">😊</option>
+                            <option value="3">😢</option>
+                            <option value="4">😡</option>
                         </select> の支出合計
                     </span>
 
@@ -493,47 +538,53 @@
                 </div>
 
                 <div id="cat${st.index}_e" class="detail" style="display:none;">
-
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                            <div class="row-item">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="tag">
-                                <c:forEach var="t" items="${tagList}">
-                                    <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
-                                        ${t.tname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -541,7 +592,7 @@
 
     </div>
     <div id="patience" class="content">
-        <div class="calender">
+        <div class="calendar">
             <input type="month" name="calendar">
         </div>
 
@@ -549,7 +600,7 @@
 
             <div class="tcard">
 
-                <div class="header" onclick="toggleContent('cat${st.index}_t', this)">
+                <div class="header" onclick="toggleContent('cat${st.index}_pt', this)">
 
                     <span>
                         ${entry.key} の我慢できたもの合計
@@ -563,43 +614,49 @@
 
                 </div>
 
-                <div id="cat${st.index}_t" class="detail" style="display:none;">
-
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                <div id="cat${st.index}_pt" class="detail" style="display:none;">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                            <div class="row-item">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -608,15 +665,15 @@
 
             </div>
 
-            <div class="ccard">
+           <div class="ccard">
 
-                <div class="header" onclick="toggleContent('cat${st.index}_pc', this)">
+                <div class="header" onclick="toggleContent('cat${st.index}_c', this)">
 
                     <span>
                         <select name="category" id="select_menu">
-                            <option value="1">給料</option>
-                            <option value="2">お小遣い</option>
-                            <option value="3">副業</option>
+                            <option value="1">食費</option>
+                            <option value="2">交通費</option>
+                            <option value="3">娯楽費</option>
                         </select> の我慢できたもの合計
                     </span>
 
@@ -628,42 +685,55 @@
 
                 </div>
 
-                <div id="cat${st.index}_pc" class="detail" style="display:none;">
+                <div id="cat${st.index}_c" class="detail" style="display:none;">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                            <div class="row-item">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
 
-                    </c:forEach> <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
@@ -678,7 +748,7 @@
                             <option value="1">通勤時</option>
                             <option value="2">昼休み</option>
                             <option value="3">休日</option>
-                        </select> の我慢できたもの合計
+                        </select> に我慢できたもの合計
                     </span>
 
                     <span class="amount">
@@ -690,51 +760,61 @@
                 </div>
 
                 <div id="cat${st.index}_s" class="detail" style="display:none;">
-
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
+                            <div class="row-item">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                    </c:forEach> 
-                    <br><input type="submit" name="submit" value="編集"> <input type="submit" name="submit"
-                        value="削除">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
             </div>
 
-
             <div class="ecard">
 
-                <div class="header" onclick="toggleContent('cat${st.index}_ie', this)">
+                <div class="header" onclick="toggleContent('cat${st.index}_e', this)">
 
                     <span>
                         <select name="tag" id="select_menu">
@@ -742,7 +822,7 @@
                             <option value="2">😊</option>
                             <option value="3">😢</option>
                             <option value="4">😡</option>
-                        </select> の我慢できたもの合計
+                        </select> の支出合計
                     </span>
 
                     <span class="amount">
@@ -753,47 +833,62 @@
 
                 </div>
 
-                <div id="cat${st.index}_ie" class="detail" style="display:none;">
-
-                    <c:forEach var="e" items="${entry.value}">
-
-                        <form method="post" action="ListServlet">
+                <div id="cat${st.index}_e" class="detail" style="display:none;">
+                    <form method="post" action="ListServlet">
+                        <c:forEach var="e" items="${entry.value}">
 
 
-                            <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="hidden" name="id" value="${e.id}">
+                            <div class="row-item">
+                                <input type="checkbox" name="deleteIds" value="${e.id}">
 
-                            <input type="date" name="useDate" value="${e.useDate}">
+                                <input type="hidden" name="id" value="${e.id}">
 
-                            <select name="category">
-                                <c:forEach var="c" items="${categoryList}">
-                                    <option value="${c.id}" <c:if test="${c.id == e.category}">selected</c:if>>
-                                        ${c.cname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="situation">
-                                <c:forEach var="s" items="${situationList}">
-                                    <option value="${s.id}" <c:if test="${s.id == e.situation}">selected</c:if>>
-                                        ${s.sname}</option>
-                                </c:forEach>
-                            </select>
-                            <select name="emotion" class="emo">
-                                <c:forEach var="em" items="${emotionList}">
-                                    <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
-                                        </c:if>>
-                                        ${em.ename}</option>
-                                </c:forEach>
-                            </select>
-                            <input type="text" name="amoung" value="${e.amoung}">
+                                <input type="date" name="useDate" value="${e.useDate}">
 
-                    </c:forEach>
-                    <br>
-                    <input type="submit" name="submit" value="編集"> <input type="submit" name="submit" value="削除">
+                                <select name="category">
+                                    <c:forEach var="c" items="${categoryList}">
+                                        <option value="${c.id}" <c:if test="${c.id == e.category}">selected
+                                            </c:if>>
+                                            ${c.cname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="tag">
+                                    <c:forEach var="t" items="${tagList}">
+                                        <option value="${t.id}" <c:if test="${t.id == e.tag}">selected</c:if>>
+                                            ${t.tname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="situation">
+                                    <c:forEach var="s" items="${situationList}">
+                                        <option value="${s.id}" <c:if test="${s.id == e.situation}">selected
+                                            </c:if>>
+                                            ${s.sname}</option>
+                                    </c:forEach>
+                                </select>
+                                <select name="emotion" class="emo">
+                                    <c:forEach var="em" items="${emotionList}">
+                                        <option value="${em.id}" <c:if test="${em.id == e.situation}">selected
+                                            </c:if>>
+                                            ${em.ename}</option>
+                                    </c:forEach>
+                                </select>
+                                <input type="text" name="amoung" value="${e.amoung}">
+                            </div>
+                        </c:forEach>
+                        <div class="buttons">
+
+                            <input type="submit" name="submit" value="編集">
+                            <input type="submit" name="submit" value="削除">
+                        </div>
 
                     </form>
                 </div>
-            </div>
+
+        </c:forEach>
+
+    </div>
+    
 
 
     </div>
